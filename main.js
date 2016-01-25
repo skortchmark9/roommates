@@ -21,6 +21,8 @@ function toggleRoommate(number, elt) {
 	}).then(function(response) {
 		$(elt).toggleClass('home', Boolean(response.return_value));
 		updateCount($('.home').length);
+		var name = $(elt).find('img').attr('class');
+		updateMessage((response.return_value ? 'Welcome home ' :'Seeya ') + name + '!');
 
 	}.bind(this));
 }
@@ -36,6 +38,13 @@ function countOnes(n) {
 
 function updateCount(ct) {
 	$('.occ-count').text(ct);
+}
+
+function updateMessage(txt) {
+	$('.msg').text(txt).addClass('scroll');
+	setTimeout(function() {
+    	$('.msg').removeClass('scroll');
+	}, 3000);
 }
 
 $(document).ready(function() {

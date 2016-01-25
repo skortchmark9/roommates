@@ -23,8 +23,12 @@
 			color: green;
 		}
 
+		body, html {
+			font-family: 'Montserrat';		
+			margin: 0;	
+		}
+
 		h1 {
-			font-family: 'Montserrat';
 			text-align: center;
 		}
 
@@ -42,16 +46,50 @@
 		    border-radius: 50%;
 			border: 3px solid transparent;
 		    overflow: hidden;
+		    transition: all 1s;
 		}
 
 		.roommate:hover {
 		    cursor: pointer;
 		    border: 3px solid blue;
-
 		}
 
 		.home {
 			border: 3px solid green;
+		}
+
+		.banner {
+			height: 40px;
+			width: 100%;
+			padding: 10px 0;
+			position: fixed;
+			bottom: 0;
+			z-index: 1;
+		}
+
+		.msg {
+			display: none;
+			text-transform: capitalize;
+			white-space: nowrap;
+			font-size: 40px;
+		}
+
+		.scroll {
+			display: block;
+			margin-left: 100%;
+			animation-name: slideright;
+			animation-duration: 3s;
+			animation-iteration-count: 1;
+  		}
+
+		@keyframes slideright {
+		  from {
+		    margin-left: 100%;
+		  }
+
+		  to {
+		  	margin-left: -40%;
+		  }
 		}
 
 		.john {
@@ -147,5 +185,9 @@
 		<img class="sam" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11999824_10206356458263921_8411561731393689914_o.jpg"/>
 	</li>
 </ul>
+<footer class="banner">
+	<div class="msg">
+	</div>
+</footer>
 </body>
 </html>
