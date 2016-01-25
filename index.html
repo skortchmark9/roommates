@@ -24,8 +24,9 @@
 		}
 
 		body, html {
-			font-family: 'Montserrat';		
-			margin: 0;	
+			font-family: 'Montserrat';
+			font-size: 20px;
+			margin: 0;
 		}
 
 		h1 {
@@ -44,24 +45,42 @@
 		    width: 250px;
 		    height: 250px;
 		    border-radius: 50%;
-			border: 3px solid transparent;
+			border: 5px solid transparent;
 		    overflow: hidden;
 		    transition: all 1s;
 		}
 
+		label {
+		    position: absolute;
+		    margin-top: -40px;
+		    font-size: 1.5em;
+		    text-transform: capitalize;
+		    display: block;
+		    z-index: 1;
+		    color: white;
+		    width: 100%;
+		    background: rgba(0, 0, 0, 0.57);
+		    transition: all .3s;
+	    }
+
+
 		.roommate:hover {
 		    cursor: pointer;
-		    border: 3px solid blue;
+		    border: 5px solid blue;
+		}
+
+		.roommate:hover > label {
+			padding: 10px 0;
+			margin-top: 0px;
 		}
 
 		.home {
-			border: 3px solid green;
+			border: 5px solid green;
 		}
 
 		.banner {
 			height: 40px;
 			width: 100%;
-			padding: 10px 0;
 			position: fixed;
 			bottom: 0;
 			z-index: 1;
@@ -73,7 +92,7 @@
 			color: white;
 			text-transform: capitalize;
 			white-space: nowrap;
-			font-size: 40px;
+			font-size: 1.5em;
 		}
 
 		.scroll {
@@ -99,6 +118,7 @@
 		  }
 		}
 
+	
 		.john {
 			position: relative;
 		    bottom: 275px;
@@ -159,36 +179,43 @@
 
 <ul class="roommates">
 	<li class="roommate">
+		<label>john</label>
 		<img class="john" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/12235134_10207223224315541_6578481381795502192_n.jpg?oh=8aa4b158e50d8292acc066b43f30d46c&oe=5744DAC5" />
 	</li>
 
 
 	<li class="roommate">
+		<label>wilson</label>
 		<img class="wilson" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10418933_10153444318637354_1503719334026912776_n.jpg?oh=ec097536410f298a8cc5502973b230d4&oe=57444326" />
 	</li>
 
 
 	<li class="roommate">
+		<label>keillor</label>
 		<img class="keillor" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12239664_979233302135971_3740230771862943349_n.jpg?oh=faff4760ac56ce368909c6977e66a042&oe=573F54E9" />
 	</li>
 
 
 	<li class="roommate">
+		<label>jake</label>
 		<img class="jake" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/1545548_10205409118331504_4122527430582864375_n.jpg?oh=194099e1984f4587e5ea34f0ef58c645&oe=5731DF8F" />
 	</li>
 
 
 	<li class="roommate">
+		<label>jack</label>
 		<img class="jack" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12593732_1688984238013587_7810453752081299890_o.jpg"/>
 	</li>
 
 
 	<li class="roommate">
+		<label>giri</label>
 		<img class="giri" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11217976_10153263229330892_6836622202502034979_n.jpg?oh=122c3b7e12231833c19aef20f99438ab&oe=57454A34"/>
 	</li>
 
 
 	<li class="roommate">
+		<label>sam</label>
 		<img class="sam" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11999824_10206356458263921_8411561731393689914_o.jpg"/>
 	</li>
 </ul>
