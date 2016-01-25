@@ -1,0 +1,2 @@
+curl https://api.particle.io/v1/devices/54ff72066678574918520767/led -d access_token=eed4f06a335e6cdd895e6a212b0a426ed58138f1 -d "args=0"
+curl https://api.particle.io/v1/devices/54ff72066678574918520767/roommates?access_token=eed4f06a335e6cdd895e6a212b0a426ed58138f1
