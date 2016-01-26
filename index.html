@@ -3,225 +3,409 @@
 <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
 <head>
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="146 Lloyd">
-	<meta name="author" content="Sam Kortchmar">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="146 Lloyd">
+    <meta name="author" content="Sam Kortchmar">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>146 Lloyd Ave</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="moment.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <style>
+    .occ-count {}
+    
+    body,
+    html {
+        font-family: 'Montserrat';
+        font-size: 20px;
+        margin: 0;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    .card {
+        padding-top: 20px;
+        position: relative;
+        width: 300px;
+        border-radius: 2px;
+        background: #fff;
+        display: inline-block;
+        margin: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .card-bottom {
+        border-top: 2px solid #D7D6D6;
+        margin: 4px;
+    }
 
-	<title>146 Lloyd Ave</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="jquery.min.1.7.js"></script>
-	<script type="text/javascript" src="main.js"></script>
-	<style>
-		.occ-count {
-			color: green;
-		}
+    .timestamp {
+    	font-size: .7em;
+    	margin-bottom: 1em;
+    }
 
-		body, html {
-			font-family: 'Montserrat';
-			font-size: 20px;
-			margin: 0;
-		}
+    .time-since {
+    	opacity: .5;
+    }
 
-		h1 {
-			text-align: center;
-		}
-
-		.roommates {
-			text-align: center;
-			margin: 30px;
-			padding-left: 0px;
-		}
-
-		.roommate {
-			display: inline-block;
-		    position: relative;
-		    width: 250px;
-		    height: 250px;
-		    border-radius: 50%;
-			border: 5px solid transparent;
-		    overflow: hidden;
-		    transition: all 1s;
-		}
-
-		label {
-		    position: absolute;
-		    margin-top: -40px;
-		    font-size: 1.5em;
-		    text-transform: capitalize;
-		    display: block;
-		    z-index: 1;
-		    color: white;
-		    width: 100%;
-		    background: rgba(0, 0, 0, 0.57);
-		    transition: all .3s;
-	    }
-
-
-		.roommate:hover {
-		    cursor: pointer;
-		    border: 5px solid blue;
-		}
-
-		.roommate:hover > label {
-			padding: 10px 0;
-			margin-top: 0px;
-		}
-
-		.home {
-			border: 5px solid green;
-		}
-
-		.banner {
-			height: 40px;
-			width: 100%;
-			position: fixed;
-			bottom: 0;
-			z-index: 1;
-		}
-
-		.msg {
-			text-align: center;
-			display: none;
-			color: white;
-			text-transform: capitalize;
-			white-space: nowrap;
-			font-size: 1.5em;
-		}
-
-		.scroll {
-			position: relative;
-			display: block;
-			background: green;
-			animation-name: slideright;
-			animation-duration: 3s;
-			animation-iteration-count: 1;
-  		}
-
-		@keyframes slideright {
-		  0% {
-		  	right: 100%;
-		  }
-
-		  75% {
-		  	right: 0%;
-		  }
-
-		  100% {
-		  	right: -100%;
-		  }
-		}
-
-	
-		.john {
-			position: relative;
-		    bottom: 275px;
-		    right: 566px;
-		}
-
-		.wilson {
-		    position: relative;
-		    right: 180px;
-		    bottom: 20px;
-		}
-
-		.keillor {
-		    position: relative;
-		    height: 250%;
-		    bottom: 75px;
-		    right: 80px;
-		}
-
-		.jake {
-			position: relative;
-		    bottom: 40px;
-		    right: 80px;
-		    height: 160%;
-		}
-
-		.jack {
-		    position: relative;
-		    bottom: 100px;
-		    right: 320px;
-		}
-
-		.sam {
-		    position: relative;
-		    bottom: 50px;
-		    right: 200px;
-		    height: 200%;
-		}
-
-		.giri {
-			position: relative;
-		    bottom: 60px;
-		    right: 230px;
-		    height: 300%;
-		}
-
-
-	</style>
+    
+    .onoffswitch {
+        position: relative;
+        width: 90px;
+        margin: 10px auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    
+    .onoffswitch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid #999999;
+        border-radius: 20px;
+    }
+    
+    .onoffswitch-inner {
+        display: block;
+        width: 200%;
+        margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+    }
+    
+    .onoffswitch-inner:before,
+    .onoffswitch-inner:after {
+        display: block;
+        float: left;
+        width: 50%;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
+        font-size: 14px;
+        color: white;
+        font-family: Trebuchet, Arial, sans-serif;
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+    
+    .onoffswitch-inner:before {
+        content: "HOME";
+        background-color: #000000;
+        color: #FFFFFF;
+        padding-left: 10px;
+        text-align: left;
+    }
+    
+    .onoffswitch-inner:after {
+        content: "AWAY";
+        padding-right: 10px;
+        background-color: #EEEEEE;
+        color: #999999;
+        text-align: right;
+    }
+    
+    .onoffswitch-switch {
+        display: block;
+        width: 18px;
+        margin: 6px;
+        background: #FFFFFF;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 56px;
+        border: 2px solid #999999;
+        border-radius: 20px;
+        transition: all 0.3s ease-in 0s;
+    }
+    
+    .onoffswitch-checkbox:checked + .onoffswitch-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch-checkbox:checked + .onoffswitch-inner + .onoffswitch-switch {
+        right: 0px;
+    }
+    
+    .roommates {
+        text-align: center;
+        margin: 30px;
+        margin-top: 0px;
+        padding-left: 0px;
+    }
+    
+    .roommate {
+        display: inline-block;
+        position: relative;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border: 5px solid transparent;
+        overflow: hidden;
+        transition: all .3s;
+    }
+    
+    .roommate:hover {
+        border: 5px solid black;
+    }
+    
+    .roommate:hover > .name {
+        padding: 10px 0;
+        margin-top: 0px;
+    }
+    
+    .name {
+        position: absolute;
+        margin-top: -40px;
+        font-size: 1.5em;
+        text-transform: capitalize;
+        display: block;
+        z-index: 1;
+        color: white;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.57);
+        transition: all .3s;
+    }
+    
+    .banner {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+    }
+    
+    .msg {
+        text-align: center;
+        display: none;
+        color: white;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: 1.5em;
+    }
+    
+    .scroll {
+        position: relative;
+        display: block;
+        background: black;
+        animation-name: slideright;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+    }
+    
+    @keyframes slideright {
+        0% {
+            right: 100%;
+        }
+        75% {
+            right: 0%;
+        }
+        100% {
+            right: -100%;
+        }
+    }
+    
+    .john {
+        position: relative;
+        bottom: 275px;
+        right: 566px;
+    }
+    
+    .wilson {
+        position: relative;
+        right: 180px;
+        bottom: 20px;
+    }
+    
+    .keillor {
+        position: relative;
+        height: 250%;
+        bottom: 75px;
+        right: 80px;
+    }
+    
+    .jake {
+        position: relative;
+        bottom: 40px;
+        right: 80px;
+        height: 160%;
+    }
+    
+    .jack {
+        position: relative;
+        bottom: 100px;
+        right: 320px;
+    }
+    
+    .sam {
+        position: relative;
+        bottom: 50px;
+        right: 200px;
+        height: 200%;
+    }
+    
+    .giri {
+        position: relative;
+        bottom: 60px;
+        right: 230px;
+        height: 300%;
+    }
+    </style>
 </head>
+
 <body>
-<h1>
+    <h1>
 	<span class="occ-count"></span>
 	Roommates at 
 	<a href="https://www.google.com/maps/place/146+Lloyd+Ave,+Providence,+RI+02906/@41.8316266,-71.4036903,17z/data=!3m1!4b1!4m2!3m1!1s0x89e44523e877327b:0xd83fb22dafa8d77e">
 		146 Lloyd
 	</a>
 </h1>
+    <ul class="roommates">
+        <li class="card">
+            <div class="roommate">
+                <label class="name">john</label>
+                <img class="john" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/12235134_10207223224315541_6578481381795502192_n.jpg?oh=8aa4b158e50d8292acc066b43f30d46c&oe=5744DAC5" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="john" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">wilson</label>
+                <img class="wilson" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10418933_10153444318637354_1503719334026912776_n.jpg?oh=ec097536410f298a8cc5502973b230d4&oe=57444326" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="wilson" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
 
-<ul class="roommates">
-	<li class="roommate">
-		<label>john</label>
-		<img class="john" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/12235134_10207223224315541_6578481381795502192_n.jpg?oh=8aa4b158e50d8292acc066b43f30d46c&oe=5744DAC5" />
-	</li>
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">keillor</label>
+                <img class="keillor" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12239664_979233302135971_3740230771862943349_n.jpg?oh=faff4760ac56ce368909c6977e66a042&oe=573F54E9" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="keillor" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
 
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">jake</label>
+                <img class="jake" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/1545548_10205409118331504_4122527430582864375_n.jpg?oh=194099e1984f4587e5ea34f0ef58c645&oe=5731DF8F" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="jake" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
 
-	<li class="roommate">
-		<label>wilson</label>
-		<img class="wilson" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10418933_10153444318637354_1503719334026912776_n.jpg?oh=ec097536410f298a8cc5502973b230d4&oe=57444326" />
-	</li>
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">jack</label>
+                <img class="jack" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12593732_1688984238013587_7810453752081299890_o.jpg" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="jack" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
 
-
-	<li class="roommate">
-		<label>keillor</label>
-		<img class="keillor" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12239664_979233302135971_3740230771862943349_n.jpg?oh=faff4760ac56ce368909c6977e66a042&oe=573F54E9" />
-	</li>
-
-
-	<li class="roommate">
-		<label>jake</label>
-		<img class="jake" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/1545548_10205409118331504_4122527430582864375_n.jpg?oh=194099e1984f4587e5ea34f0ef58c645&oe=5731DF8F" />
-	</li>
-
-
-	<li class="roommate">
-		<label>jack</label>
-		<img class="jack" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12593732_1688984238013587_7810453752081299890_o.jpg"/>
-	</li>
-
-
-	<li class="roommate">
-		<label>giri</label>
-		<img class="giri" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11217976_10153263229330892_6836622202502034979_n.jpg?oh=122c3b7e12231833c19aef20f99438ab&oe=57454A34"/>
-	</li>
-
-
-	<li class="roommate">
-		<label>sam</label>
-		<img class="sam" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11999824_10206356458263921_8411561731393689914_o.jpg"/>
-	</li>
-</ul>
-<footer class="banner">
-	<div class="msg">
-	</div>
-</footer>
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">giri</label>
+                <img class="giri" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11217976_10153263229330892_6836622202502034979_n.jpg?oh=122c3b7e12231833c19aef20f99438ab&oe=57454A34" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="giri" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="roommate">
+                <label class="name">sam</label>
+                <img class="sam" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11999824_10206356458263921_8411561731393689914_o.jpg" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="sam" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
+    </ul>
+    <footer </class="banner">
+        <div class="msg">
+        </div>
+    </footer>
 </body>
+
 </html>
