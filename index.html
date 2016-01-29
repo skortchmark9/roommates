@@ -18,6 +18,7 @@
     <title>146 Lloyd Ave</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="handlebars-v4.0.5.js"></script>
     <script type="text/javascript" src="moment.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <style>
@@ -144,7 +145,6 @@
     
     .roommates {
         text-align: center;
-        margin: 30px;
         margin-top: 0px;
         padding-left: 0px;
     }
@@ -266,6 +266,29 @@
     }
     </style>
 </head>
+<script id="roommate-cards" type="text/x-handlebars-template">
+    <ul class="roommates">
+      {{#each roommates}}
+        <li class="card">
+            <div class="roommate">
+                <label class="name">{{this.name}}</label>
+                <img class="{{this.name}}" src="{{this.img}}" />
+            </div>
+            <div class="card-bottom">
+                <div class="onoffswitch">
+                    <label class="onoffswitch-label">
+                        <input type="checkbox" name="{{this.name}}" class="onoffswitch-checkbox" checked>
+                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <div class="timestamp">
+                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
+                </div>
+            </div>
+        </li>
+      {{/each}}
+    </ul>
+</script>
 
 <body>
     <h1>
@@ -274,134 +297,9 @@
 	<a href="https://www.google.com/maps/place/146+Lloyd+Ave,+Providence,+RI+02906/@41.8316266,-71.4036903,17z/data=!3m1!4b1!4m2!3m1!1s0x89e44523e877327b:0xd83fb22dafa8d77e">
 		146 Lloyd
 	</a>
-</h1>
-    <ul class="roommates">
-        <li class="card">
-            <div class="roommate">
-                <label class="name">john</label>
-                <img class="john" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/12235134_10207223224315541_6578481381795502192_n.jpg?oh=8aa4b158e50d8292acc066b43f30d46c&oe=5744DAC5" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="john" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">wilson</label>
-                <img class="wilson" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10418933_10153444318637354_1503719334026912776_n.jpg?oh=ec097536410f298a8cc5502973b230d4&oe=57444326" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="wilson" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">keillor</label>
-                <img class="keillor" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12239664_979233302135971_3740230771862943349_n.jpg?oh=faff4760ac56ce368909c6977e66a042&oe=573F54E9" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="keillor" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">jake</label>
-                <img class="jake" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/1545548_10205409118331504_4122527430582864375_n.jpg?oh=194099e1984f4587e5ea34f0ef58c645&oe=5731DF8F" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="jake" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span>
-                        <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">jack</label>
-                <img class="jack" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12593732_1688984238013587_7810453752081299890_o.jpg" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="jack" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">giri</label>
-                <img class="giri" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11217976_10153263229330892_6836622202502034979_n.jpg?oh=122c3b7e12231833c19aef20f99438ab&oe=57454A34" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="giri" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span>
-                        <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-        </li>
-        <li class="card">
-            <div class="roommate">
-                <label class="name">sam</label>
-                <img class="sam" src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11999824_10206356458263921_8411561731393689914_o.jpg" />
-            </div>
-            <div class="card-bottom">
-                <div class="onoffswitch">
-                    <label class="onoffswitch-label">
-                        <input type="checkbox" name="sam" class="onoffswitch-checkbox" checked>
-                        <span class="onoffswitch-inner"></span>
-                        <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
-                <div class="timestamp">
-                    since <span class="last-time">???</span><br/><span class="time-since">&nbsp;</span>
-                </div>
-            </div>
-    </ul>
+    </h1>
+    <div id="container">
+    </div>
     <footer </class="banner">
         <div class="msg">
         </div>
